@@ -1,4 +1,7 @@
-﻿Public Class Form1
+﻿Imports System.Drawing
+Imports System.Windows.Forms
+
+Public Class Form1
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         e.Cancel = True
@@ -6,8 +9,6 @@
     End Sub
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        Me.BackgroundImage = My.Resources.back
-        PictureBox1.Image = My.Resources.brew
         cb_Speed2.SelectedItem = "true"
         cb_Slowness2.SelectedItem = "true"
         cb_Haste2.SelectedItem = "true"
@@ -1119,7 +1120,8 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Form2.Show()
+        Dim f2 = New Form2()
+        f2.Show()
         Me.Hide()
     End Sub
 
@@ -1269,7 +1271,7 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Try
-            My.Computer.Clipboard.SetText(TextBox1.Text)
+            Clipboard.SetText(TextBox1.Text)
         Catch ex As Exception
             MsgBox("Bitte generieren Sie zuerst einen Code" & vbCrLf & vbCrLf & "Please generate a Code first", MsgBoxStyle.Critical, "kein Code|no Code")
         End Try
